@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
+  allownewserver=false;
+  serverstatus='not clicked yet';
+  serverName='some';
 
-  constructor() { }
+  constructor() {
+    setTimeout(()=>{
+      this.allownewserver=true;
+    },2000)
+    
+   }
 
   ngOnInit(): void {
   }
-
+onclickserver(){
+  this.serverstatus='now it is clicked and server name is '+ this.serverName;
+}
+onUpdateServerName(event:Event){
+this.serverName=(<HTMLInputElement>event.target).value;
+}
 }
